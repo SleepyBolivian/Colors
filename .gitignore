@@ -1,0 +1,21 @@
+# Dependencies
+node_modules/
+
+# Production build files
+dist/
+
+# Logs
+*.log
+
+# Coverage directory used by tools like Istanbul
+coverage/
+
+# Ignore editor settings, e.g., VS Code
+.vscode/
+
+# Ignore MacOS system files
+.DS_Store
+
+# Ignore temporary files
+*.tmp
+*.temp
