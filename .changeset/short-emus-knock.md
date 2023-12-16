@@ -1,5 +1,0 @@
----
-"colors": patch
----
-
-Initial Commit
