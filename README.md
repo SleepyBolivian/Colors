@@ -18,12 +18,6 @@ NPM:
 npm i @sleepybolivian/colors
 ```
 
-Yarn:
-
-```bash
-yarn add @sleepybolivian/colors
-```
-
 # Contributing
 
 For contributing bugfixes and improvements to the project, please visit the [GitHub repository](https://m.ca).
