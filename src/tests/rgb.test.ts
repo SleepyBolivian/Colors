@@ -1,4 +1,4 @@
-import { rgbToHex, rgbToHsl } from "../src/colors/convert/rgb";
+import { rgbToHex, rgbToHsl } from "../colors/convert/rgb";
 
 describe("RGB to Hex", () => {
   it("Convert (68, 34, 0) to '#442200'", () => {

@@ -12,6 +12,7 @@
       "type": "git",
       "url": "https://github.com/SleepyBolivian/Colors"
    },
+   "homepage": "https://m.kaulbach.ca/colors",
    "main": "dist/index.js",
    "module": "dist/index.mjs",
    "types": "dist/index.d.ts",

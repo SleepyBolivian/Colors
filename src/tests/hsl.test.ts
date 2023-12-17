@@ -1,4 +1,4 @@
-import { hslToHex, hslToRGB, hslToRGBs } from "../src/colors/convert/hsl";
+import { hslToHex, hslToRGB, hslToRGBs } from "../colors/convert/hsl";
 
 describe("HSL Conversion", () => {
   it("RGB: Object", () => {

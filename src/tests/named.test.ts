@@ -4,7 +4,7 @@ import {
   namedToHex,
   namedToRGB,
   namedToRGBs,
-} from "../src/colors/convert/named";
+} from "../colors/convert/named";
 
 describe("Named Conversion", () => {
   it("Hex: String - 'Red'", () => {

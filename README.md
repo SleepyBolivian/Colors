@@ -1,14 +1,8 @@
-# Colors · ![npm](https://img.shields.io/npm/v/%40sleepybolivian%2Fcolors)
+# Colors · [![npm](https://img.shields.io/npm/v/%40sleepybolivian%2Fcolors)](https://www.npmjs.com/package/@sleepybolivian/colors) [![GitHub License](https://img.shields.io/github/license/SleepyBolivian/Colors)](https://github.com/SleepyBolivian/Colors/blob/main/LICENSE)
 
 Colors is an experimental color management library, aimed to convert between different color types and provide a set of useful color manipulation tools.
 
-# Documentation
-
-Documentation: [https://m.kaulbach.ca/colors](https://m.kaulbach.ca/colors)
-
 # Installation
-
-The Colors package does not have any dependencies, and can be installed with npm or yarn.
 
 To install the latest stable version, run the following command:
 
