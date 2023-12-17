@@ -1,5 +1,0 @@
----
-"@sleepybolivian/colors": minor
----
-
-.
