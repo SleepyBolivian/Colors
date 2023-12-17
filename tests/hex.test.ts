@@ -1,4 +1,4 @@
-import { hexToRGB, hexToRGBs } from "../colors/convert/hex";
+import { hexToRGB, hexToRGBs } from "../src/colors/convert/hex";
 
 describe("OBJ - Hex to RGB", () => {
   it("Convert '#442200' to { r: 68, g: 34, b: 0 }", () => {

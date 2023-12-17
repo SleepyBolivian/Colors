@@ -1,4 +1,4 @@
-import { getShade, getTint } from "../colors/manipulate/tintAndShade";
+import { getShade, getTint } from "../src/colors/manipulate/tintAndShade";
 
 describe("Tint and Shade", () => {
   it("20 % Tint on '#442200'", () => {
