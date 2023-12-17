@@ -1,5 +1,11 @@
 # colors
 
+## 1.0.0
+
+### Major Changes
+
+- 27a5640: Initial Release
+
 ## 0.1.0
 
 ### Minor Changes
