@@ -2,6 +2,10 @@
 
 @SleepyBolivians/Colors is a usefull color management tool, that allows you to easily convert between different color formats (HEX, RGB(A), HSL(A) and CSS Color Names) and manipulate the tint and shade of a color.
 
+# Documentation
+
+Documentation: [https://m.kaulbach.ca/colors](https://m.kaulbach.ca/colors)
+
 # Installation
 
 To install the latest stable version, run the following commands
@@ -9,18 +13,18 @@ To install the latest stable version, run the following commands
 NPM:
 
 ```bash
-npm i @sleepybolivian/colors
+npm i @sleepybolivian/colors --save-dev
 ```
 
 Yarn:
 
 ```bash
-yarn add @sleepybolivian/colors
+yarn add @sleepybolivian/colors -D
 ```
 
 # Contributing
 
-For contributing bugfixes and improvements to the project, please visit the [GitHub repository](https://github.com/SleepyBolivian/Colors).
+Contributions, bug reports, and feature requests are welcome. Please refer to the [repository's issues](https://github.com/SleepyBolivian/Colors) section to contribute.
 
 ### License
 

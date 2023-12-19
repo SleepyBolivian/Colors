@@ -14,7 +14,7 @@ import { Alpha } from "../interfaces";
  * it is included in the return object.
  *
  * @param {string} hex - The hex color code to be converted.
- * @param {Alpha} [alpha] - The optional alpha value (0-100).
+ * @param {number} [alpha] - The optional alpha value (0-100).
  * @returns {{ r: number; g: number; b: number; a?: number }} An object containing the RGB (and optionally alpha) components.
  *
  * @example
@@ -40,7 +40,7 @@ function hexToRGB(
  * it is included in the return object.
  *
  * @param {string} hex - The hex color code to be converted.
- * @param {Alpha} [alpha] - The optional alpha value (0-100).
+ * @param {number} [alpha] - The optional alpha value (0-100).
  * @returns {string} A string in the format 'rgb(...)' or 'rgba(...)'.
  *
  * @example
@@ -61,7 +61,7 @@ function hexToRGBs(hex: string, alpha?: Alpha): string {
  * it is included in the return object.
  *
  * @param {string} hex - The hex color code to be converted.
- * @param {Alpha} [alpha] - The optional alpha value (0-100).
+ * @param {number} [alpha] - The optional alpha value (0-100).
  * @returns {{ h: number; s: number; l: number; a?: number }} An object containing the HSL (and optionally alpha) components.
  *
  * @example
@@ -87,8 +87,8 @@ function hexToHSL(
  * it is included in the return object.
  *
  * @param {string} hex - The hex color code to be converted.
- * @param {Alpha} [alpha] - The optional alpha value (0-100).
- * @returns {string} A string in the format 'hsl(...)' or 'hsla(...)'.
+ * @param {number} [alpha] - The optional alpha value (0-100).
+ * @returns {string} The HSL(A) color code.
  *
  * @example
  * hexToHSLs('#00FF00');     // Outputs 'hsl(120, 100%, 50%)'

@@ -1,5 +1,5 @@
 import { decimalToHex, sanitizeAlpha } from "../helpers";
-import { Alpha, Blue, Green, Red } from "../interfaces";
+import { Alpha, RGBValue } from "../interfaces";
 
 /**
  * Converts RGB values to a hexadecimal color code, with an optional alpha value.
@@ -7,17 +7,22 @@ import { Alpha, Blue, Green, Red } from "../interfaces";
  * Result formated into a CSS-compatible string
  * If an alpha (transparency) value is provided, it is included in the return object.
  *
- * @param {Red} red - The red component of the color (0-255).
- * @param {Green} green - The green component of the color (0-255).
- * @param {Blue} blue - The blue component of the color (0-255).
- * @param {Alpha} [alpha] - The optional alpha value (0-100).
+ * @param {number} red - The red component of the color (0-255).
+ * @param {number} green - The green component of the color (0-255).
+ * @param {number} blue - The blue component of the color (0-255).
+ * @param {number} [alpha] - The optional alpha value (0-100).
  * @returns {string} The hexadecimal color code.
  *
  * @example
  * rgbToHex(255, 87, 51);     // Outputs '#FF5733'
  * rgbToHex(255, 87, 51, 80); // Outputs '#FF5733CC'
  */
-function rgbToHex(red: Red, green: Green, blue: Blue, alpha?: Alpha): string {
+function rgbToHex(
+  red: RGBValue,
+  green: RGBValue,
+  blue: RGBValue,
+  alpha?: Alpha
+): string {
   const hexR = decimalToHex(red);
   const hexG = decimalToHex(green);
   const hexB = decimalToHex(blue);
@@ -32,10 +37,10 @@ function rgbToHex(red: Red, green: Green, blue: Blue, alpha?: Alpha): string {
  *
  * If an alpha (transparency) value is provided, it is included in the return object.
  *
- * @param {Red} red - The red component of the color (0-255).
- * @param {Green} green - The green component of the color (0-255).
- * @param {Blue} blue - The blue component of the color (0-255).
- * @param {Alpha} [alpha] - The optional alpha value (0-100).
+ * @param {number} red - The red component of the color (0-255).
+ * @param {number} green - The green component of the color (0-255).
+ * @param {number} blue - The blue component of the color (0-255).
+ * @param {number} [alpha] - The optional alpha value (0-100).
  * @returns {{ h: number; s: number; l: number; a?: number }} An object containing the HSL (and optionally alpha) components.
  *
  * @example
@@ -43,9 +48,9 @@ function rgbToHex(red: Red, green: Green, blue: Blue, alpha?: Alpha): string {
  * rgbToHsl(255, 87, 51, 80); // Outputs { h: 14, s: 100, l: 60, a: 0.8 }
  */
 function rgbToHsl(
-  red: Red,
-  green: Green,
-  blue: Blue,
+  red: RGBValue,
+  green: RGBValue,
+  blue: RGBValue,
   alpha?: Alpha
 ): { h: number; s: number; l: number; a?: number } {
   const normalize = (value: number) => value / 255;
@@ -99,17 +104,22 @@ function rgbToHsl(
  * CSS-compatible string. If an alpha (transparency) value is provided,
  * it is included in the return object.
  *
- * @param {Red} red - The red component of the color (0-255).
- * @param {Green} green - The green component of the color (0-255).
- * @param {Blue} blue - The blue component of the color (0-255).
- * @param {Alpha} [alpha] - The optional alpha value (0-100).
- * @returns {string} A string in the format 'hsl(...)' or 'hsla(...)'.
+ * @param {number} red - The red component of the color (0-255).
+ * @param {number} green - The green component of the color (0-255).
+ * @param {number} blue - The blue component of the color (0-255).
+ * @param {number} [alpha] - The optional alpha value (0-100).
+ * @returns {string} The HSL(A) color code.
  *
  * @example
  * rgbToHsls(255, 87, 51);     // Outputs 'hsl(14, 100%, 60%)'
  * rgbToHsls(255, 87, 51, 80); // Outputs 'hsla(14, 100%, 60%, 0.8)'
  */
-function rgbToHsls(red: Red, green: Green, blue: Blue, alpha?: Alpha): string {
+function rgbToHsls(
+  red: RGBValue,
+  green: RGBValue,
+  blue: RGBValue,
+  alpha?: Alpha
+): string {
   const { h, s, l, a } = rgbToHsl(red, green, blue, alpha);
   if (a !== 1) return `hsla(${h}, ${s}%, ${l}%, ${a})`;
   return `hsl(${h}, ${s}%, ${l}%)`;

@@ -1,13 +1,5 @@
 import { hueToRGB, sanitizeAlpha } from "../helpers";
-import {
-  Alpha,
-  Blue,
-  Green,
-  Hue,
-  Lightness,
-  Red,
-  Saturation,
-} from "../interfaces";
+import { Alpha, Hue, Lightness, RGBValue, Saturation } from "../interfaces";
 import { rgbToHex } from "./rgb";
 
 /**
@@ -76,7 +68,7 @@ function hslToRGB(
  * @param {Saturation} saturation - The saturation component of the color (0-100%).
  * @param {Lightness} lightness - The lightness component of the color (0-100%).
  * @param {Alpha} [alpha] - The optional alpha value (0-100) to be included (optional).
- * @returns {string} A string in the format 'rgb(...)' or 'rgba(...)'.
+ * @returns {string} The RGB(A) color code.
  *
  * @example
  * hslToRGBs(120, 100, 50);     // Outputs 'rgb(0, 255, 0)'
@@ -117,7 +109,7 @@ function hslToHex(
   alpha?: Alpha
 ): string {
   const { r, g, b } = hslToRGB(hue, saturation, lightness);
-  return rgbToHex(r as Red, g as Green, b as Blue, alpha);
+  return rgbToHex(r as RGBValue, g as RGBValue, b as RGBValue, alpha);
 }
 
 export { hslToHex, hslToRGB, hslToRGBs };
