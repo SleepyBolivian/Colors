@@ -1,5 +1,11 @@
 # colors
 
+## 1.0.1
+
+### Patch Changes
+
+- 3cd75f3: Documentation update.
+
 ## 1.0.0
 
 ### Major Changes
