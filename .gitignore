@@ -10,9 +10,17 @@ pnpm-lock.yaml
 tests/screenshots
 
 # Production
+/dist
 /tmp
 /docs/tmp
-/dist
+
+# Build
+coverage
+build
+dist
+lib
+es
+bin
 
 # Misc
 .DS_Store
