@@ -12,12 +12,13 @@
       "type": "git",
       "url": "https://github.com/SleepyBolivian/Colors"
    },
+   "keywords": ["colors"],
    "homepage": "https://m.kaulbach.ca/colors",
    "main": "dist/index.js",
    "module": "dist/index.mjs",
    "types": "dist/index.d.ts",
    "scripts": {
-      "build": "tsup src/index.ts --format cjs,esm --dts",
+      "build": "tsup index.ts --format cjs,esm --dts",
       "test": "jest",
       "lint": "tsc",
       "ci": "pnpm run lint && pnpm run test && pnpm run build",
