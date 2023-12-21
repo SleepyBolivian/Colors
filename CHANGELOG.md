@@ -1,5 +1,11 @@
 # colors
 
+## 1.0.2
+
+### Patch Changes
+
+- 9ab4c7f: Updated project distribution between github and npm
+
 ## 1.0.1
 
 ### Patch Changes
