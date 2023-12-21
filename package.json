@@ -1,7 +1,7 @@
 {
    "name": "@sleepybolivian/colors",
    "license": "MIT",
-   "version": "1.0.1",
+   "version": "1.0.2",
    "private": false,
    "description": "Convert hex, rgb(s), hsl(s), and named colors to each other. Add Tint and Shade to any color.",
    "author": {
@@ -12,7 +12,9 @@
       "type": "git",
       "url": "https://github.com/SleepyBolivian/Colors"
    },
-   "keywords": ["colors"],
+   "keywords": [
+      "colors"
+   ],
    "homepage": "https://m.kaulbach.ca/colors",
    "main": "dist/index.js",
    "module": "dist/index.mjs",
