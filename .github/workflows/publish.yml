@@ -11,18 +11,33 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v2
+
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 18.x
+
+      - uses: pnpm/action-setup@v2.2.2
         with:
           version: 8.10.5
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16.x
-          cache: "pnpm"
-          registry-url: "https://registry.npmjs.org"
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - run: pnpm install --frozen-lockfile
+      - name: Get PNPM store directory
+        id: pnpm-cache
+        run: echo "::set-output name=pnpm_cache_dir::$(pnpm store path)"
+
+      - name: Setup pnpm cache
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Install Dependencies
+      - run: pnpm install
+
+      - name: Build packages
+        run: pnpm run build
 
       - name: Create PR or Publish
         id: changesets
