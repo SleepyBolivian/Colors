@@ -36,7 +36,7 @@ function sanitizeAlpha(alpha?: Alpha): number {
   if (alpha) {
     return alpha / 100;
   }
-  return 1; // TODO: Make the default value configurable.
+  return 1;
 }
 
 /**
@@ -47,14 +47,11 @@ function sanitizeAlpha(alpha?: Alpha): number {
  * hex code is returned.
  *
  * @param {string} hex - The hex color code to be sanitized.
+ * @param {string} fallbackColor - The fallback color to be used if the hex code is invalid.
  * @returns The sanitized hex color code.
  *
- * @example
- * sanitizeHex('#03f');     // Outputs '0033FF'
- * sanitizeHex('badcolor'); // Outputs default hex 'FF06E0'
- *
  */
-function sanitizeHex(hex: string) {
+function sanitizeHex(hex: string, fallbackColor?: string) {
   let sanitizedHex = hex.trim().replace(/^#/, "");
 
   if (sanitizedHex.length === 3) {
@@ -66,7 +63,7 @@ function sanitizeHex(hex: string) {
 
   if (!/^[0-9A-F]{6}$/i.test(sanitizedHex)) {
     console.error("@sleepybolivian/colors", `Invalid Hex Value: ${hex}.`);
-    return "FF06E0"; // TODO: Make the default value configurable.
+    return fallbackColor ?? "FF06E0";
   }
 
   return sanitizedHex;
@@ -162,48 +159,9 @@ function hueToRGB(p: number, q: number, t: number): number {
   return p;
 }
 
-// TODO: Use when accepting string as param
-/**
- * Check if a given value is a valid rgba value (within the range 0-255).
- *
- * @param {number} value - The value to check.
- * @returns {boolean} True if the value is valid, false otherwise.
- */
-function isValidRGBValue(value: number): boolean {
-  return value >= 0 && value <= 255;
-}
-
-// TODO: Use when accepting string as param
-/**
- * Check if given values are valid rgba values (within the range 0-255).
- *
- * @param r - The red value to check.
- * @param g - The green value to check.
- * @param b - The blue value to check.
- * @returns [r, g, b] if valid.
- * @Error If invalid RGB values provided then default color returned.
- */
-function sanitizeRGB(
-  r: number,
-  g: number,
-  b: number
-): { r: number; g: number; b: number } {
-  const invalidValues = [r, g, b].filter((value) => !isValidRGBValue(value));
-  if (invalidValues.length > 0) {
-    console.error(
-      "@sleepybolivian/colors:",
-      `Invalid '${invalidValues}' in rgb(${[r, g, b]}). (Range 0-255)`
-    );
-    return { r: 68, g: 34, b: 0 }; // TODO: Allow this to be configurable.
-  }
-  return { r: r, g: g, b: b };
-}
-
 export {
-  isValidRGBValue,
   decimalToHex,
   sanitizeHex,
-  sanitizeRGB,
   sanitizeAlpha,
   hexToRGBValues,
   hexToHSLValues,

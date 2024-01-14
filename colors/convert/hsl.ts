@@ -16,6 +16,8 @@ import { rgbToHex } from "./rgb";
  * @example
  * hslToRGB(120, 100, 50);     // Outputs { r: 0, g: 255, b: 0 }
  * hslToRGB(120, 100, 50, 80); // Outputs { r: 0, g: 255, b: 0, a: 0.8 }
+ *
+ * credit: https://axonflux.com/handy-rgb-to-hsl-and-rgb-to-hsv-color-model-c
  */
 function hslToRGB(
   hue: Hue,

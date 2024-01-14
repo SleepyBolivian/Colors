@@ -15,6 +15,7 @@ import { Alpha } from "../interfaces";
  *
  * @param {string} hex - The hex color code to be converted.
  * @param {number} [alpha] - The optional alpha value (0-100).
+ * @param {string} [fallback] - The fallback color to be used if the hex code is invalid. Defaults to #FF06E0. Best used with the Color Class.
  * @returns {{ r: number; g: number; b: number; a?: number }} An object containing the RGB (and optionally alpha) components.
  *
  * @example
@@ -23,9 +24,10 @@ import { Alpha } from "../interfaces";
  */
 function hexToRGB(
   hex: string,
-  alpha?: Alpha
+  alpha?: Alpha,
+  fallback?: string
 ): { r: number; g: number; b: number; a?: number } {
-  const sanitizedHex = sanitizeHex(hex);
+  const sanitizedHex = sanitizeHex(hex, fallback);
   const a = sanitizeAlpha(alpha);
   const { r, g, b } = hexToRGBValues(sanitizedHex);
   if (alpha && a !== 1) return { r, g, b, a };
@@ -41,14 +43,15 @@ function hexToRGB(
  *
  * @param {string} hex - The hex color code to be converted.
  * @param {number} [alpha] - The optional alpha value (0-100).
+ * @param {string} [fallback] - The fallback color to be used if the hex code is invalid. Defaults to #FF06E0. Best used with the Color Class.
  * @returns {string} A string in the format 'rgb(...)' or 'rgba(...)'.
  *
  * @example
  * hexToRGBs('#FF5733');     // Outputs 'rgb(255, 87, 51)'
  * hexToRGBs('#FF5733', 80); // Outputs 'rgba(255, 87, 51, 0.8)'
  */
-function hexToRGBs(hex: string, alpha?: Alpha): string {
-  const { r, g, b, a } = hexToRGB(hex, alpha);
+function hexToRGBs(hex: string, alpha?: Alpha, fallback?: string): string {
+  const { r, g, b, a } = hexToRGB(hex, alpha, fallback);
   if (alpha && a !== 1) return `rgba(${r}, ${g}, ${b}, ${a})`;
   return `rgb(${r}, ${g}, ${b})`;
 }
@@ -62,6 +65,7 @@ function hexToRGBs(hex: string, alpha?: Alpha): string {
  *
  * @param {string} hex - The hex color code to be converted.
  * @param {number} [alpha] - The optional alpha value (0-100).
+ * @param {string} [fallback] - The fallback color to be used if the hex code is invalid. Defaults to #FF06E0. Best used with the Color Class.
  * @returns {{ h: number; s: number; l: number; a?: number }} An object containing the HSL (and optionally alpha) components.
  *
  * @example
@@ -70,9 +74,10 @@ function hexToRGBs(hex: string, alpha?: Alpha): string {
  */
 function hexToHSL(
   hex: string,
-  alpha?: Alpha
+  alpha?: Alpha,
+  fallback?: string
 ): { h: number; s: number; l: number; a?: number } {
-  const sanitizedHex = sanitizeHex(hex);
+  const sanitizedHex = sanitizeHex(hex, fallback);
   const a = sanitizeAlpha(alpha);
   const { h, s, l } = hexToHSLValues(sanitizedHex);
   if (alpha && a !== 1) return { h, s, l, a };
@@ -88,14 +93,15 @@ function hexToHSL(
  *
  * @param {string} hex - The hex color code to be converted.
  * @param {number} [alpha] - The optional alpha value (0-100).
+ * @param {string} [fallback] - The fallback color to be used if the hex code is invalid. Defaults to #FF06E0. Best used with the Color Class.
  * @returns {string} The HSL(A) color code.
  *
  * @example
  * hexToHSLs('#00FF00');     // Outputs 'hsl(120, 100%, 50%)'
  * hexToHSLs('#00FF00', 50); // Outputs 'hsla(120, 100%, 50%, 0.5)'
  */
-function hexToHSLs(hex: string, alpha?: Alpha): string {
-  const { h, s, l, a } = hexToHSL(hex, alpha);
+function hexToHSLs(hex: string, alpha?: Alpha, fallback?: string): string {
+  const { h, s, l, a } = hexToHSL(hex, alpha, fallback);
   if (alpha && a !== 1) return `hsla(${h}, ${s}%, ${l}%, ${a})`;
   return `hsl(${h}, ${s}%, ${l}%)`;
 }

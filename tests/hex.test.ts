@@ -65,7 +65,6 @@ describe("OBJ - Fail - Hex to RGB", () => {
     expect(hexToRGB("#GHIJKL")).toEqual({ r: 255, g: 6, b: 224 });
   });
 
-  // TODO: Add setting to allow for filling in missing values
   // Invalid length
   it("Convert '#12345' Should fail", () => {
     expect(hexToRGB("#12345")).toEqual({ r: 255, g: 6, b: 224 });

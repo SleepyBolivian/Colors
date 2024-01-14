@@ -1,6 +1,5 @@
-import { Alpha } from "../interfaces";
+import { Alpha, NamedColor, NamedValues } from "../interfaces";
 import { decimalToHex, sanitizeAlpha } from "../helpers";
-import { NamedColor, NamedValues } from "../named.colors";
 import { hexToHSL, hexToRGB } from "./hex";
 
 /**
@@ -81,14 +80,17 @@ function namedToRGBs(color: NamedColor, alpha?: Alpha): string {
  * it is included in the return object.
  *
  * @param {NamedColor} color - The named color to be converted.
- * @param {number} [alpha] - The optional alpha value (0-100).
+ * @param {Alpha} [alpha] - The optional alpha value (0-100).
  * @returns {{ h: number; s: number; l: number; a?: number }} An object containing the HSL components.
  *
  * @example
  * namedToHSL('blue', 50); // Outputs { h: 240, s: 100, l: 50, a: 0.5 }
  * namedToHSL('red');      // Outputs { h: 0, s: 100, l: 50 }
  */
-function namedToHSL(color: NamedColor, alpha?: Alpha) {
+function namedToHSL(
+  color: NamedColor,
+  alpha?: Alpha
+): { h: number; s: number; l: number; a?: number } {
   const named = NamedValues[color];
   const a = sanitizeAlpha(alpha);
   if (a !== 1) return { ...hexToHSL(named), a };
