@@ -1,5 +1,15 @@
 # colors
 
+## 1.1.0
+
+### Minor Changes
+
+- 0733545: # New Year New Update
+
+  - Added Colors class to set a fallback color and still access all functions.
+  - Added function to get the Meta theme color.
+  - Ate some food.
+
 ## 1.0.2
 
 ### Patch Changes

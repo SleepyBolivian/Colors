@@ -1,7 +1,7 @@
 {
    "name": "@sleepybolivian/colors",
    "license": "MIT",
-   "version": "1.0.2",
+   "version": "1.1.0",
    "private": false,
    "description": "Convert hex, rgb(s), hsl(s), and named colors to each other. Add Tint and Shade to any color.",
    "author": {
